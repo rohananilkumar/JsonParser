@@ -4,7 +4,7 @@ namespace JSON
 
     public class JSON
     {
-        public static DataType GetDataType(string data)
+        internal static DataType GetDataType(string data)
         {
 
             data = data.Trim();
@@ -51,7 +51,7 @@ namespace JSON
             }
         }
 
-        public static ObjectType GetObjectType(string _object)
+        internal static ObjectType GetObjectType(string _object)
         {
             _object = _object.Trim();
             if (_object.StartsWith("{") && _object.EndsWith("}"))
@@ -62,7 +62,7 @@ namespace JSON
                 return ObjectType.KeyValue;
         }
 
-        public static dynamic GetData(string data)
+        internal static dynamic GetData(string data)
         {
             DataType Type = JSON.GetDataType(data);
             if (Type == DataType.String)
@@ -100,7 +100,7 @@ namespace JSON
         }
     }
 
-    public enum ObjectType { Array, Object, KeyValue };
+    internal enum ObjectType { Array, Object, KeyValue };
 
-    public enum DataType { String, Number, Bool, Null }
+    internal enum DataType { String, Number, Bool, Null }
 }
